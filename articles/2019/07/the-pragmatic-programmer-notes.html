@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>The Pragmatic Programmer Notlarım</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/includes/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/includes/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/includes/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/includes/favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="/includes/css/stylesheet.css">
+</head>
+
+<body>
+  <a id="top"></a>
+  <header>
+    <nav>
+      <div class="back-home">
+        <a title="Anasayfa" href="/index.html">←<span>Anasayfa</span></a>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <h1>The Pragmatic Programmer Notlarım</h1>
+    <div class="posted-by">Posted on 2019-07-18</div>
+    <div class="abstract">The Pragmatic Programmer: From Journeyman to Master kitabını okurken altını çizdiğim
+      kısımlar</div>
+    <p><img class="center-image" src="/includes/img/the-pragmatic-programmer.png" width="256" /></p>
+
+    <h3>2. A Pragmatic Approach</h3>
+    <h4 style="padding-left: 2em;">2.8. Orthogonality</h4>
+    <blockquote style="text-align: center">
+      <h4>What Is Orthogonality?</h4>
+      In computing, the term has come to signify a kind of independence or decoupling. Two or more things
+      are
+      orthogonal if changes in one do not affect any of the others. In a well-designed system, the
+      database
+      code will be orthogonal to the user interface: you can change the interface without affecting the
+      database, and swap databases without changing the interface.
+      <p><cite>~ page: 34</cite></p>
+    </blockquote>
+
+    <img class="center-image" alt="example orthogonality graph" src="/includes/img/orthogonality.png" />
+
+    <h4 style="padding-left: 2em;">2.13. Estimating</h4>
+    <blockquote style="text-align: center">
+      <h4 style="text-align: center">Where Do Estimates Come From?</h5>
+        All estimates are based on models of the problem. But before we get too deeply into the techniques of
+        building models, we have to mention a basic estimating trick that always gives good answers: ask
+        someonewho’s already done it.
+        <p><cite>~ page: 65</cite></p>
+    </blockquote>
+
+    <div class="divider div-transparent div-arrow-down"></div>
+
+    <h3>4. Pragmatic Paranoia</h3>
+    <blockquote style="text-align: center">
+      <p>...</p>
+      But Pragmatic Programmers take this a step further. They don’t trust themselves, either. Knowing that no
+      one
+      writes perfect code, including themselves, Pragmatic Programmers code in defenses against their own
+      mistakes. We describe the first defensive measure in Design by Contract: clients and suppliers must agree on
+      rights and responsibilities.
+      <p><cite>~ page: 108</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <h4 style="padding-left: 2em;">4.21. Design by Contract</h4>
+    <blockquote style="text-align: center">
+      What is a correct program? One that does no more and no less than it claims to do. Documenting and verifying
+      that claim is the heart of Design by contract(DBC, for short).
+      <p><cite>~ page: 109</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <blockquote style="text-align: center">
+      <p>Subclasses must be usable through the base class interface without the need for the user to know the
+        difference.</p>
+
+      <p>In other words, you want to make sure that the new subtype you have created really “is-a-kind-of” the
+        base
+        type—that it supports the same methods, and that the methods have the same meaning.</p>
+      <p><cite>~ page: 112</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <h4 style="padding-left: 2em;">4.24. When to Use Exceptions?</h4>
+    <blockquote style="text-align: center">
+      <h5>What Is Exceptional?</h5>
+
+      “Will this code still run if I remove all the exception handlers?” If the answer is “no,” then maybe
+      exceptions are being used in nonexceptional circumstances.
+      <p><cite>~ page: 126</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <h4 style="padding-left: 2em;">4.25. How to Balance Resources?</h4>
+    <blockquote style="text-align: center">
+      It doesn’t matter what kind of resources we’re using—transactions,memory, files, threads, windows—the basic
+      pattern applies: whoever allocates a resource should be responsible for deallocating it. However,in some
+      languages we can develop the concept further.
+      <p><cite>~ page: 131</cite></p>
+    </blockquote>
+
+    <div class="divider div-transparent div-arrow-down"></div>
+
+    <h3>6. While You Are Coding</h3>
+    <h4 style="padding-left: 2em;">6.31 Programming by Coincidence</h4>
+    <blockquote style="text-align: center">
+      <h4>How to Program by Coincidence</h4>
+      <p>Suppose Fred is given a programming assignment. Fred types in some code, tries it, and it seems to work.
+        Fred types in some more code, tries it, and it still seems to work. After several weeks of coding this
+        way, the program suddenly stops working, and after hours of trying to fix it, he still doesn’t know why.
+        Fred may well spend a significant amount of time chasing this piece of code around without ever being
+        able to fix it. No matter what he does, it just doesn’t ever seem to work right.
+      </p>
+      <p>
+        Fred doesn’t know why the code is failing because he didn’t know why
+        it worked in the first place. It seemed to work, given the limited “testing”
+        that Fred did, but that was just a coincidence. Buoyed by false confi-
+        dence, Fred charged ahead into oblivion. Now, most intelligent people
+        may know someone like Fred, but we know better. We don’t rely on
+        coincidences—do we?
+
+      </p>
+      <p>
+        Sometimes we might. Sometimes it can be pretty easy to confuse a
+        happy coincidence with a purposeful plan.
+      </p>
+      <p><cite>~ page: 173</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <blockquote style="text-align: center">
+      <h4>Implicit Assumptions</h4>
+
+      Coincidences can mislead at all levels—from generating requirements through to testing. Testing is
+      particularly fraught with false causalities and coincidental outcomes. It’s easy to assume that X causes Y,
+      but as we said in Debugging, page 90: don’t assume it, prove it.
+      <p><cite>~ page: 174</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <blockquote style="text-align: center">
+      <h4>How to Program Deliberately</h4>
+      <p>
+        <ul style="text-align: left;">
+          <li> Always be aware of what you are doing. </li>
+          <li> Don’t code blindfolded. </li>
+          <li> Proceed from a plan, whether that plan is in your head, on the back of a cocktail napkin, or on
+            a wall-sized printout from a CASE tool.</li>
+          <li> Rely only on reliable things. Don’t depend on accidents or assumptions. </li>
+          <li> Document your assumptions. </li>
+          <li>Don’t just test your code, but test your assumptions as well. Don’t guess; actually try it.
+          </li>
+          <li>Prioritize your effort.</li>
+          <li>Don’t be a slave to history. Don’t let existing code dictate future code.</li>
+        </ul>
+      </p>
+      <p><cite>~ page: 175</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <h4 style="padding-left: 2em;">6.33 Refactoring</h4>
+    <blockquote style="text-align: center">
+      <b>TIP 47</b>
+      <p> Refactor Early, Refactor Often</p>
+      <p><cite>~ page: 186</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+    <blockquote style="text-align: center">
+      <b>How Do You Refactor?</b>
+      <p>
+        <ol style="text-align: left;">
+          <li> Don’t try to refactor and add functionality at the same time. </li>
+          <li> Make sure you have good tests before you begin refactoring. Run the tests as often as possible.
+            That way you will know quickly if your changes have broken anything. </li>
+          <li> Take short, deliberate steps: move a field from one class to another, fuse two similar methods
+            into a superclass. Refactoring often involves making many localized changes that result in a
+            larger-scale change. If you keep your steps small, and test after each step, you will avoid
+            prolonged debugging.</li>
+        </ol>
+      </p>
+      <footer>
+        <cite>— page: 186</cite>
+      </footer>
+    </blockquote>
+
+    <div class="divider div-transparent div-arrow-down"></div>
+
+    <h3>8. Pragmatic Projects</h3>
+    <h4 style="padding-left: 2em;">8.43 Ruthless Testing</h4>
+    <blockquote style="text-align: center">
+      <p>The earlier a bug is found, the cheaper it is to remedy. “Code a little, test a little” is a popular
+        saying in the Smalltalk world</p>
+      <p><cite>~ page: 238</cite></p>
+    </blockquote>
+
+    <div style="padding: 0.5em 0 0.5em 0"></div>
+
+
+    <blockquote style="text-align: center">
+      <b>TIP 65</b>
+      <p>Test State Coverage, Not Code Coverage</p>
+      <p><cite>~ page: 245</cite></p>
+    </blockquote>
+
+    <div class="divider div-transparent"></div>
+    <div class="tags">
+      <div id="link-tag" class="link">
+        <a href="/books.html">#kitap</a>
+      </div>
+    </div>
+
+    <a href="#top" style="display: block; float:right; padding-bottom:1rem;">Başa Dön ↑</a>
+  </section>
+</body>
+
+</html>
