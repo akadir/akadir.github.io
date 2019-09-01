@@ -188,7 +188,7 @@ hr {
     position: absolute;
     z-index: 1;
     top: -7px;
-    left: calc(50% + 1rem);
+    left: calc(50%);
     width: 14px;
     height: 14px;
     transform: rotate(45deg);
