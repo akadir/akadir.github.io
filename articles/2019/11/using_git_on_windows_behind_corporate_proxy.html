@@ -25,19 +25,20 @@
         <h1>Using git behind proxy on windows</h1>
         <div class="posted-by">Posted on 2019-11-15</div>
         <div class="abstract">It can be getting hard to work behind corporate proxy sometimes, even when you need to
-            clone random github repository to your computer,
-            you may need to make some additional configurations.</div>
+            clone random github repository to your computer, you may need to make some additional configurations.</div>
         <p>
             In this blog post we will see yet another proxy configuration.
         </p>
         <p>
             You can make git proxy configurations using
-            git config http.proxy command but as you know this command requires password and it's stored without
-            encryption in .gitconfig file and we don't want this.
+            <pre><code>git config http.proxy</code></pre>
+            command but as you know, this command requires password and it's stored without encryption in .gitconfig file
+            and we don't want this.
         </p>
 
         <p>
-            Using following list of commands we can configure git to use the standard windows Credential Manager to store credentials.
+            Using following list of commands we can configure git to use the standard windows Credential Manager to
+            store credentials.
         </p>
         <pre><code>git config --global http.proxy http://user@proxy.corporate.com:8080
 git config --global https.proxy http://user@proxy.corporate.com:8080
@@ -50,14 +51,16 @@ git config --global credential.helper wincred</code></pre>
         <p>references and further readings:</p>
         <p>
             <a href="https://stackoverflow.com/questions/22799825/using-git-on-windows-behind-an-http-proxy-without-storing-proxy-password-on-di"
-                target="_blank">- https://stackoverflow.com/questions/22799825/using-git-on-windows-behind-an-http-proxy</a><br>
+                target="_blank">-
+                https://stackoverflow.com/questions/22799825/using-git-on-windows-behind-an-http-proxy</a><br>
             <a href="https://stackoverflow.com/questions/38333752/trying-to-understand-wincred-with-git-for-windows-confused"
-                target="_blank">- https://stackoverflow.com/questions/38333752/trying-to-understand-wincred-with-git</a><br>
-            <a href="https://gist.github.com/ankurk91/f0b26f1c30d0d6d3ca4e"
-                target="_blank">- git_remember_password.md</a><br>
-            <a href="https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage"
-                target="_blank">- https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage</a><br>
-                
+                target="_blank">-
+                https://stackoverflow.com/questions/38333752/trying-to-understand-wincred-with-git</a><br>
+            <a href="https://gist.github.com/ankurk91/f0b26f1c30d0d6d3ca4e" target="_blank">-
+                git_remember_password.md</a><br>
+            <a href="https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage" target="_blank">-
+                https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage</a><br>
+
         </p>
 
         <div class="divider div-transparent"></div>
