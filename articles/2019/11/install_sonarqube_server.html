@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SonarQube Server Installation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/includes/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/includes/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/includes/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/includes/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="/includes/css/stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="back-home">
+                <a title="Anasayfa" href="/">←<span>Anasayfa</span></a>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <h1>Guide To Install SonarQube Server</h1>
+        <div class="posted-by">Posted on 2019-11-15</div>
+        <div class="abstract">SonarQube is a popular static code analyze tool and in this post we will cover how to
+            install SonarQube server on Ubuntu.</div>
+        <p>
+            As I already mentioned, SonarQube is an one of the most popular static code analyzer tool and it's
+            installation and usage is very
+            simple. In this guide we will use PostgreSQL as database solution.
+        </p>
+        <h1>PostgresSQL Installation and Configuration</h1>
+
+        <h3>Install PostgreSQL</h3>
+        <p>
+            Let's start with database installation. PostgreSQL installation is also very simple, we can execute
+            following commands to install postgres:
+
+            <pre><code># Add PostgreSQL apt repository
+echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' >> /etc/apt/sources.list.d/pgdg.list
+
+# Import the repository signing key, and update the package lists
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - 
+
+# Install PostgreSQL
+sudo apt-get update
+sudo apt-get install postgresql-10</code></pre>
+        </p>
+        <h3>Change postgres user password and authentication type</h3>
+        <p>
+            After PostgreSQL installation we will connect PostgreSQL and create database with the name
+            SonarQube. But before that, we should change PostgreSQL authentication type from IDENT to MD5. In order to
+            do that, we should first change our user(assuming we are connected as root) to postgres and then connect to
+            PostgreSQL:
+            <pre><code>su - postgres
+psql</code></pre>
+
+            then change password with the
+            <pre><code>\password</code></pre>
+            command. This command prompt you a new password and confirmation inputs. After that you can quit from
+            PostgreSQL with
+            <pre><code>\q</code></pre> command.
+
+            After password change, we should check authentication type by looking at pg_hba.conf file as shown in below:
+
+            <pre><code>cat /var/lib/pgsql/9.3/data/pg_hba.conf</code></pre>
+
+            This file's content should have a part something like below (the important part is md5 column):<br><br>
+            <pre># IPv4 local connections:
+host    all              all             127.0.0.1/32             md5
+# IPv6 local connections:
+host    all              all             ::1/128                  md5</pre>
+        </p>
+
+        <h3>Create database for Sonarqube</h3>
+        <p>To use PostgreSQL as SonarQube database we should create SonarQube database using following command:</p>
+        <pre><code>CREATE DATABASE SonarQube;</code></pre>
+
+        <h1>Create sonarqube User</h1>
+
+        <p>The next step coming after postgres configuration is creating unix user for sonarqube.
+            <pre><code>adduser sonarqube</code></pre>
+            This command will ask for password and then prompt to set new user informations.
+            After typing desired inputs, our user will be created.
+        </p>
+
+        <p>After sonarqube user creation, let's add our user into sudo group
+            <pre><code>usermod -aG sudo sonarqube</code></pre>
+        </p>
+
+        <h1>Download & Configure SonarQube</h1>
+
+        <h1>Solution for elastic-search related vm.max_map_count error</h1>
+
+        <div class="divider div-transparent"></div>
+    </section>
+</body>
+
+</html>
