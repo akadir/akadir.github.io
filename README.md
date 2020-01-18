@@ -1,3 +1,5 @@
 # akadir.github.io
 
-Repository for personel blog 
+Repository for personel blog. Forked from [Gatsby blog starter](https://github.com/gatsbyjs/gatsby-starter-blog).
+
+To run locally, `yarn`, then `yarn dev`, then open https://localhost:8000.
