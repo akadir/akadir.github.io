@@ -55,8 +55,7 @@ const Bio = () => {
       />
       <p style={{ maxWidth: 310 }}>
         Personal blog by{' '}
-        <strong>{author}</strong>.{' '}<br></br>
-        "Everything about nothing."
+        <strong>{author}</strong>.
       </p>
     </div>
   )
