@@ -25,7 +25,7 @@ git remote add –f &lt;imaginary-repo-url&gt;</code></pre></div>
 │   └── file-2.jar
 └── README.md</code></pre></div>
 <p>Thanks to sparse checkout, we do not have the folder named <code class="language-text">folder-we-do-not-want</code>.</p>
-<p>We also can use sparse-checkout in existing local repositories as below. The only difference, after enabling sparse checkout and updating the <code class="language-text">.git/info/sparse-checkout</code>file, we should run this command: </p>
+<p>We also can use sparse-checkout in existing local repositories as below. The only difference, after enabling sparse checkout and updating the <code class="language-text">.git/info/sparse-checkout</code>file, we should run one extra command: </p>
 <div class="gatsby-highlight" data-language="sh"><pre class="language-sh"><code class="language-sh">git config core.sparsecheckout true
 echo folder-we-do-not-want &gt;&gt; .git/info/sparse-checkout
 echo another/unnecessary/folder &gt;&gt; .git/info/sparse-checkout
