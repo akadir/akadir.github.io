@@ -56,7 +56,7 @@ After all these modifications, when we fetch the repository with `git pull <remo
 
 Thanks to sparse checkout, we do not have the folder named `folder-we-do-not-want`.
 
-We also can use sparse-checkout in existing local repositories as below. The only difference, after enabling sparse checkout and updating the `.git/info/sparse-checkout`file, we should run this command: 
+We also can use sparse-checkout in existing local repositories as below. The only difference, after enabling sparse checkout and updating the `.git/info/sparse-checkout`file, we should run one extra command: 
 
 ```sh
 git config core.sparsecheckout true
