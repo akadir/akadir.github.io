@@ -36,14 +36,13 @@ After that we need to enable sparse checkout using this command:
 git config core.sparsecheckout true
 ```
 
-Now we can add folder path we do not want in our local repository into `.git/info/sparse-checkout`. Our updated`.git/info/sparse-checkout` file content should be as below:
+Now we can add folder path we do not want in our local repository into `.git/info/sparse-checkout` starting with `exclamation mark`. Our updated`.git/info/sparse-checkout` file content should be as below:
 
 ```sh
-folder-we-do-not-want
+!folder-we-do-not-want
 ```
 
-<i>Note: in git-sparse-checkout documentation it is stated that, by default, sparse-checkout file uses the same syntax as .gitignore files.</i>
-
+<i>Note: in git-sparse-checkout documentation it is stated that, by default, sparse-checkout file uses the same syntax as .gitignore files. While this file is usually used to specify what files are included, what files are not included can also be specified by using negative patterns. </i>
 
 After all these modifications, when we fetch the repository with `git pull <remote> <branch>` command our local directory(`imaginary-repo`)'s structure should be as below:
 
