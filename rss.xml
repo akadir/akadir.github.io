@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[akadir's blog]]></title><description><![CDATA[akadir's blog]]></description><link>https://akadir.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 01 Jun 2020 17:41:05 GMT</lastBuildDate><item><title><![CDATA[git sparse checkout]]></title><description><![CDATA[Today I have learned that there is an option to fetch only specific folders or files from remote git repository. Yes, you are right, it…]]></description><link>https://akadir.github.io/2020/04/01-git-sparse-checkout/</link><guid isPermaLink="false">https://akadir.github.io/2020/04/01-git-sparse-checkout/</guid><pubDate>Mon, 20 Apr 2020 22:19:32 GMT</pubDate><content:encoded>&lt;p&gt;Today I have learned that there is an option to fetch only specific folders or files from remote git repository. Yes, you are right, it seems like the opposite of .gitignore.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[akadir's blog]]></title><description><![CDATA[akadir's blog]]></description><link>https://akadir.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Jun 2020 23:03:13 GMT</lastBuildDate><item><title><![CDATA[Generics In Java]]></title><description><![CDATA[Generic Terms: Term Example Parameterized type List <String> Actual type parameter String Generic type List<E> Formal type parameter E…]]></description><link>https://akadir.github.io/2020/06/01-java-generics/</link><guid isPermaLink="false">https://akadir.github.io/2020/06/01-java-generics/</guid><pubDate>Sat, 06 Jun 2020 02:00:32 GMT</pubDate><content:encoded>&lt;h3&gt;Generic Terms:&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Term&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Parameterized type&lt;/td&gt;
+&lt;td&gt;List &amp;#x3C;String&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Actual type parameter&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Generic type&lt;/td&gt;
+&lt;td&gt;List&amp;#x3C;E&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Formal type parameter&lt;/td&gt;
+&lt;td&gt;E&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unbounded wildcard type&lt;/td&gt;
+&lt;td&gt;List&amp;#x3C;?&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Raw type&lt;/td&gt;
+&lt;td&gt;List&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bounded type parameter&lt;/td&gt;
+&lt;td&gt;&amp;#x3C;E extends Number&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recursive type bound&lt;/td&gt;
+&lt;td&gt;&amp;#x3C;T extends Comparable&amp;#x3C;T&gt;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bounded wildcard type&lt;/td&gt;
+&lt;td&gt;List&amp;#x3C;? extends Number&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Generic method&lt;/td&gt;
+&lt;td&gt;static &amp;#x3C;E&gt; List&amp;#x3C;E&gt; &lt;br&gt; asList(E[] a)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Type token&lt;/td&gt;
+&lt;td&gt;String.class&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Covariant:&lt;/strong&gt; f is covariant if A ≤ B implies that f(A) ≤ f(B) &lt;br&gt;&lt;code class=&quot;language-text&quot;&gt;Arrays are covariant.&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Fails at runtime!
+Object[] objectArray = new Long[1];
+objectArray[0] = &amp;quot;I don&amp;#39;t fit in&amp;quot;; // Throws ArrayStoreException&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;f is contravariant if A ≤ B implies that f(B) ≤ f(A)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Invariant:&lt;/strong&gt; f is invariant if neither of the above holds &lt;br&gt;&lt;code class=&quot;language-text&quot;&gt;Generics, by contrast, are invariant.&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Won&amp;#39;t compile!
+List&amp;lt;Object&amp;gt; ol = new ArrayList&amp;lt;Long&amp;gt;(); // Incompatible types
+ol.add(&amp;quot;I don&amp;#39;t fit in&amp;quot;);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;p&gt;If method is declared by:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Number[] method(ArrayList&amp;lt;Number&amp;gt; list) { ... }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;none of the following expressions will compile:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Integer[] result = method(new ArrayList&amp;lt;Integer&amp;gt;());
+Number[] result = method(new ArrayList&amp;lt;Integer&amp;gt;());
+Object[] result = method(new ArrayList&amp;lt;Object&amp;gt;());&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;but&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Number[] result = method(new ArrayList&amp;lt;Number&amp;gt;());
+Object[] result = method(new ArrayList&amp;lt;Number&amp;gt;());&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;will.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;arrays are reified [JLS, 4.7]. This means that arrays know and enforce their element type at runtime.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Generics, by contrast, are implemented by erasure [JLS, 4.6]. This means that they enforce their type constraints
+only at compile time and discard (or erase) their element type information at runtime.
+&lt;br&gt;&lt;br&gt;Because of erasure, the only parameterized types that are reifiable are unbounded wildcard types such as List&amp;#x3C;?&gt; and Map&amp;#x3C;?,?&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Why generic array creation is illegal - won&amp;#39;t compile!
+List&amp;lt;String&amp;gt;[] stringLists = new List&amp;lt;String&amp;gt;[1]; // (1)
+List&amp;lt;Integer&amp;gt; intList = List.of(42); // (2)
+Object[] objects = stringLists; // (3)
+objects[0] = intList; // (4)
+String s = stringLists[0].get(0); // (5)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;i&gt;&lt;strong&gt;p.s:&lt;/strong&gt; These notes were obtained from the book Effective Java 3rd Edition By Joshua Bloch and this
+&lt;a href=&quot;https://stackoverflow.com/a/8482091/2183174&quot; target=&quot;_blank&quot;&gt;stackoverflow answer.&lt;/a&gt;
+&lt;/i&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[git sparse checkout]]></title><description><![CDATA[Today I have learned that there is an option to fetch only specific folders or files from remote git repository. Yes, you are right, it…]]></description><link>https://akadir.github.io/2020/04/01-git-sparse-checkout/</link><guid isPermaLink="false">https://akadir.github.io/2020/04/01-git-sparse-checkout/</guid><pubDate>Mon, 20 Apr 2020 22:19:32 GMT</pubDate><content:encoded>&lt;p&gt;Today I have learned that there is an option to fetch only specific folders or files from remote git repository. Yes, you are right, it seems like the opposite of .gitignore.&lt;/p&gt;
 &lt;p&gt;So, how do we use this?&lt;/p&gt;
 &lt;p&gt;Let’s say we will fetch remote repository that structured as shown in below:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;.
